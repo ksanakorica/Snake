@@ -18,7 +18,7 @@ var direction = -1; //up = 0; down = -1; left = 1; right = 2;
 var int;
 var score = 0;
 var eatSound = new Howl({
-  src: ['https://raw.githubusercontent.com/Tonejs/Tone.js/master/examples/audio/505/hh.mp3']
+  src: ['https://ksanakorica.github.io/Snake/sounds/Alert/Alert-04.mp3']
 });
 
 /**
