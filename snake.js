@@ -1,8 +1,8 @@
 //settings
 var snakeX = 2;
 var snakeY = 2;
-var height = 28;
-var width = 70;
+var height = 20;
+var width = 60;
 var interval = 100;
 var increment = 1;
 
@@ -20,7 +20,9 @@ var score = 0;
 var eatSound = new Howl({
   src: ['https://ksanakorica.github.io/Snake/sounds/Alert/Alert-04.mp3']
 });
-
+var wallSound = new Howl({
+  src: ['https://ksanakorica.github.io/Snake/sounds/Alert/Alert-02.mp3']
+});
 /**
 entry point of the game
 */
@@ -117,6 +119,8 @@ function gameLoop(){
   }
   else if(gameOver){
     clearInterval(int);
+    console.log('game over??')
+    wallSound.play();
 
   }
 }
