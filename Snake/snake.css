@@ -1,0 +1,33 @@
+{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-image:url(./images/Dark-Gray-Background-for-Free-Download.jpg);
+  background-size: cover;
+}
+
+td{
+  width: 15px;
+  height: 15px;
+}
+.blank{
+  background-color: blank;
+}
+
+.snake{
+  background-image: url(./images/112400-glowing-green-neon-icon-symbols-shapes-cube.png);
+  background-size: cover;
+
+}
+
+.wall{
+  background-image: url(./images/112427-glowing-green-neon-icon-symbols-shapes-shape-square-frame.png);
+  background-size: cover;
+}
+
+.fruit{
+  background-image: url(./images/111785-glowing-green-neon-icon-natural-wonders-star2.png);
+  background-size: cover;
+}
