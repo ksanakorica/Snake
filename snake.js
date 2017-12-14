@@ -2,7 +2,7 @@
 var snakeX = 2;
 var snakeY = 2;
 var height = 20;
-var width = 60;
+var width = 20;
 var interval = 100;
 var increment = 1;
 
@@ -40,22 +40,27 @@ function init(){
 *Generates the Map for the snake
 */
 function createMap(){
-  document.write("<table>");
+  if (document.getElementById("map")) {
+    document.getElementById("map").remove();
+    document.getElementById("score").innerHTML = "SCORE: "+ score;
+
+  }
+  var table = document.createElement("table");
+  table.setAttribute("id", "map");
   for( var y = 0; y < height; y++){
-    document.write("<tr>");
+    var tr = document.createElement("tr");
     for( var x = 0; x < width; x++){
       if(x == 0 || x == width -1 || y == 0 || y == height -1){
-        document.write("<td class='wall' id='"+ x + "-" + y +"'></td>");
+        tr.innerHTML += "<td class='wall' id='"+ x + "-" + y +"'></td>";
       }
       else{
-        document.write("<td class='blank' id='"+ x + "-" + y +"'></td>");
+        tr.innerHTML += "<td class='blank' id='"+ x + "-" + y +"'></td>";
 
       }
     }
-    document.write("</tr>");
-
+    table.appendChild(tr);
   }
-  document.write("</table>");
+  document.body.appendChild(table);
 
 }
 
@@ -90,7 +95,7 @@ function createFruit(){
     fY = fruitY;
 }
 // keypress
-window.addEventListener("keydown", function key(){
+window.addEventListener("keydown", function key(event) {
   //if key is W set direction Up
   var key = event.keyCode;
   console.log(key)
@@ -149,7 +154,7 @@ function update(){
   else if(snakeX == fX && snakeY == fY){
     console.log('ate fruit?!?!?')
     eatSound.play()
-    score+=4;
+    score+=1;
     createFruit()
     length+=increment;
 
@@ -167,6 +172,22 @@ function updateTail(){
 
 }
 
+function restart() {
+  clearInterval(int);
+
+  snakeX = 2;
+  snakeY = 2;
+
+  length = 0;
+  tailX = [snakeX];
+  tailY =[snakeY];
+  running = false;
+  gameOver = false;
+  direction = -1;
+  score = 0;
+
+  run();
+}
 
 //function preload (){
   //eatSound = loadSound(/Users/Akadachnikava/Desktop/Snake_game/Sounds/Alert/Alert-06.mp3)
